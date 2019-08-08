@@ -8,8 +8,7 @@
             <div class="x_content">
 
                 <div class="clearfix">
-                    <form class="inline">
-                    </form>
+                    <button type="button" class="btn btn-sm btn-success" data-target="#upload-images-modal" data-toggle="modal" data-backdrop="static">Add <i class="fa fa-plus"></i></button>
                 </div>
                 
                 <div class="row">
@@ -52,7 +51,33 @@
 
             </div>
         </div>
+
+        <!-- modal -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="upload-images-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Add Images</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="clearfix">
+                                <label>Image(s)</label>
+                                <input type="file" name="images" multiple />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
     </div>
+
 </template>
 <script>
 export default {

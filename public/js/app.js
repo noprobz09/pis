@@ -1967,6 +1967,21 @@ __webpack_require__.r(__webpack_exports__);
       this.show = !this.show;
       this.current = current;
     }
+  },
+  computed: {
+    URL: function (_URL) {
+      function URL() {
+        return _URL.apply(this, arguments);
+      }
+
+      URL.toString = function () {
+        return _URL.toString();
+      };
+
+      return URL;
+    }(function () {
+      return URL;
+    })
   }
 });
 
@@ -4188,6 +4203,31 @@ var PatientRepository = _repositories_RepositoryFactory__WEBPACK_IMPORTED_MODULE
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -17560,7 +17600,16 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "clearfix" }),
     _vm._v(" "),
-    _vm._m(1),
+    _c("div", { staticClass: "profile" }, [
+      _c("div", { staticClass: "profile_pic" }, [
+        _c("img", {
+          staticClass: "img-circle profile_img",
+          attrs: { src: _vm.URL.asset.images + "/img.jpg", alt: "..." }
+        })
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
+    ]),
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),
@@ -17692,19 +17741,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "profile" }, [
-      _c("div", { staticClass: "profile_pic" }, [
-        _c("img", {
-          staticClass: "img-circle profile_img",
-          attrs: { src: "images/img.jpg", alt: "..." }
-        })
-      ]),
+    return _c("div", { staticClass: "profile_info" }, [
+      _c("span", [_vm._v("Welcome,")]),
       _vm._v(" "),
-      _c("div", { staticClass: "profile_info" }, [
-        _c("span", [_vm._v("Welcome,")]),
-        _vm._v(" "),
-        _c("h2", [_vm._v("John")])
-      ])
+      _c("h2", [_vm._v("John")])
     ])
   },
   function() {
@@ -25145,7 +25185,9 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(6)
   ])
 }
 var staticRenderFns = [
@@ -25164,7 +25206,19 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "clearfix" }, [
-      _c("form", { staticClass: "inline" })
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-success",
+          attrs: {
+            type: "button",
+            "data-target": "#upload-images-modal",
+            "data-toggle": "modal",
+            "data-backdrop": "static"
+          }
+        },
+        [_vm._v("Add "), _c("i", { staticClass: "fa fa-plus" })]
+      )
     ])
   },
   function() {
@@ -25218,6 +25272,82 @@ var staticRenderFns = [
     return _c("div", { staticClass: "caption" }, [
       _c("p", [_vm._v("Diagnosis 2")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: { tabindex: "-1", role: "dialog", id: "upload-images-modal" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("form", [
+                _c("div", { staticClass: "modal-header" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: {
+                        type: "button",
+                        "data-dismiss": "modal",
+                        "aria-label": "Close"
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "modal-title" }, [
+                    _vm._v("Add Images")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "clearfix" }, [
+                    _c("label", [_vm._v("Image(s)")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: { type: "file", name: "images", multiple: "" }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-default",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Upload")]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
