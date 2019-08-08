@@ -200,7 +200,7 @@
             <!-- action -->
             <div class="action text-right">
                 <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Save</button>
-                <button class="btn btn-danger"><i class="fa fa-times"></i> Cancel</button>
+                <button class="btn btn-danger" type="reset"><i class="fa fa-times"></i> Cancel</button>
             </div>
         </form>
     </div>
@@ -279,7 +279,7 @@
 
 
         methods: {
-            submit() {
+            submit(e) {
 
                 this.$v.form.$touch();
                 
@@ -287,16 +287,20 @@
                 if(this.$v.form.$error) return
                 
                 // to form submit after this
-                this.create();
+                this.create(e);
             
             },
 
 
-            async create() {
+            async create(e) {
 
                 const create = await PatientRepository.create(this.form);
 
                 Toaster.notification(create.data);
+
+                if (create.data.result) {
+                    e.target.reset();
+                }
 
             }
 

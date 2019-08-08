@@ -2391,17 +2391,17 @@ var PatientRepository = _repositories_RepositoryFactory__WEBPACK_IMPORTED_MODULE
     }
   },
   methods: {
-    submit: function submit() {
+    submit: function submit(e) {
       this.$v.form.$touch(); //return errors if found
 
       if (this.$v.form.$error) return; // to form submit after this
 
-      this.create();
+      this.create(e);
     },
     create: function () {
       var _create = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
         var create;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -2414,7 +2414,11 @@ var PatientRepository = _repositories_RepositoryFactory__WEBPACK_IMPORTED_MODULE
                 create = _context.sent;
                 _helpers_Toaster__WEBPACK_IMPORTED_MODULE_3__["Toaster"].notification(create.data);
 
-              case 4:
+                if (create.data.result) {
+                  e.target.reset();
+                }
+
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2422,7 +2426,7 @@ var PatientRepository = _repositories_RepositoryFactory__WEBPACK_IMPORTED_MODULE
         }, _callee, this);
       }));
 
-      function create() {
+      function create(_x) {
         return _create.apply(this, arguments);
       }
 
@@ -18959,10 +18963,11 @@ var staticRenderFns = [
         [_c("i", { staticClass: "fa fa-save" }), _vm._v(" Save")]
       ),
       _vm._v(" "),
-      _c("button", { staticClass: "btn btn-danger" }, [
-        _c("i", { staticClass: "fa fa-times" }),
-        _vm._v(" Cancel")
-      ])
+      _c(
+        "button",
+        { staticClass: "btn btn-danger", attrs: { type: "reset" } },
+        [_c("i", { staticClass: "fa fa-times" }), _vm._v(" Cancel")]
+      )
     ])
   }
 ]
